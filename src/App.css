@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -37,14 +38,20 @@
   }
 }
 
-
 .board {
   display: flex;
+  background-color: rgb(244 245 248);
+  min-height: 90vh;
 }
 
 .group-column {
   margin: 10px;
   width: 300px;
+  padding: 10px;
+}
+
+.card.dragging {
+  background-color: lightgreen;
 }
 
 .card {
@@ -52,5 +59,135 @@
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  height: 90px;
+  font-size: 14px;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+}
+
+.card-id {
+  font-size: 12px;
+  color: #666;
+}
+
+.card-avatar {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  font-weight: 400;
+  padding: 2px;
+  font-size: 10px;
+  text-align: center;
+  color: #fff;
+  background-color: #964804;
+}
+
+.card-body {
+  display: flex;
+  gap: 6px;
+  font-size: 14px;
+  height: 30px;
+  align-items: center;
+}
+
+.card-title {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+}
+
+.card-footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  height: 20px;
+  align-items: center;
+}
+
+.tag-feature {
+  /* background-color: #f0f0f0; */
+  border: #f0f0f0 1px solid;
+  text-align: center;
+  color: #666;
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-size: 10px;
+}
+
+/* .tag-dot {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: #000000;
+} */
+
+.dropdown {
+  position: relative;
+  margin: 20px;
+}
+
+.menu {
+  position: absolute;
+  background-color: rgb(248 249 251);
+  list-style-type: none;
+  margin: 10px 2px;
+  padding: 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  width: 250px;
+}
+
+.menu-item {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.display-btn {
+  padding: 2px 4px;
+  margin-top: 4px;
+  margin-left: 4px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  gap: 6px;
+}
+
+.select-btn {
+  border-radius: 8px;
+  padding: 2px 4px;
+}
+
+.group-menu {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.group-title {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.group-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 4px;
+  margin-right: 4px;
 }

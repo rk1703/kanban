@@ -10,6 +10,11 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const [groupBy, setGroupBy] = useState('status');
   const [sortBy, setSortBy] = useState('priority');
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
 
   useEffect(() => {
     fetch("https://api.quicksell.co/v1/internal/frontend-assignment")
@@ -44,8 +49,21 @@ const App = () => {
 
   return (
     <div>
-    <GroupBySelector setGroupBy={setGroupBy} />
-    <SortBySelector setSortBy={setSortBy} />
+      <div className="dropdown">
+      <button onClick={handleOpen} className='display-btn'><img src='/icons/Display.svg' alt='display'/> Display <img src='/icons/down.svg' alt='down'/></button>
+      {open ? (
+        <ul className="menu">
+          <li className="menu-item">
+            <p>Grouping</p>
+            <GroupBySelector setGroupBy={setGroupBy} />
+          </li>
+          <li className="menu-item">
+            <p>Sorting</p>
+            <SortBySelector setSortBy={setSortBy} />
+            </li>
+        </ul>
+      ) : null}
+    </div>
     <Board tickets={sortTickets(tickets, sortBy)} groupBy={groupBy} />
   </div>
   );

@@ -1,8 +1,8 @@
 const SortBySelector = ({ setSortBy }) => {
     return (
-      <select onChange={(e) => setSortBy(e.target.value)}>
-        <option value="priority">Sort by Priority</option>
-        <option value="title">Sort by Title</option>
+      <select onChange={(e) => setSortBy(e.target.value)} className="select-btn">
+        <option value="priority">Priority</option>
+        <option value="title">Title</option>
       </select>
     );
   };
