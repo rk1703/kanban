@@ -1,12 +1,11 @@
-const Card = ({ ticket,group }) => {
-    const { title, priority, status, assigned_user,id,tag } = ticket;
-    const priorityLabels = ["No Priority", "Low", "Medium", "High", "Urgent"];
+const Card = ({ ticket }) => {
+    const { title, priority, status,id,tag,user_available} = ticket;
   
     return (
       <div className="card">
         <div className="card-header">
         <p className="card-id" style={{}}>{id}</p>
-        <p className="card-avatar">RK <span>{""}</span></p>
+        <p className="card-avatar">RK <span className={user_available ? "user-status live": "user-status gone"}></span></p>
         </div>
         <div className="card-body">
         <img src={`/icons/card-status/${status}.svg`} alt="status"></img>
@@ -21,15 +20,3 @@ const Card = ({ ticket,group }) => {
   };
   
   export default Card;
-  
-
-  // {
-  //   "id": "CAM-1",
-  //   "title": "Update User Profile Page UI",
-  //   "tag": [
-  //     "Feature request"
-  //   ],
-  //   "userId": "usr-1",
-  //   "status": "Todo",
-  //   "priority": 4
-  // },

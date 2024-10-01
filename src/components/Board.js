@@ -19,16 +19,21 @@ const Board = ({ tickets, groupBy }) => {
         <div key={group} className="group-column">
           <div className="group-head">
             <div className="group-title">
-              <img src={`/icons/SVG - Urgent Priority colour.svg`} alt={groupBy}></img>
-              <h3>{group}</h3>
+              {groupBy === "userName" ? (
+                <p className="card-avatar">RK <span className="user-status gone"></span></p>
+              ) : (
+                <img src={`/icons/${groupBy}/${group}.svg`} alt={groupBy} />
+              )}
+
+              <p>{group}</p>
             </div>
             <div className="group-menu">
-              <img src={`/icons/add.svg`} alt="add"/>
-              <img src={`/icons/3dot.svg`} alt="menu"/>
+              <img src={`/icons/menu-utility/add.svg`} alt="add" />
+              <img src={`/icons/menu-utility/3dot.svg`} alt="menu" />
             </div>
           </div>
           {groupedTickets[group].map((ticket) => (
-            <Card key={ticket.id} ticket={ticket} group={group} />
+            <Card key={ticket.id} ticket={ticket}/>
           ))}
         </div>
       ))}

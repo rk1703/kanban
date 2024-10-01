@@ -42,6 +42,7 @@
   display: flex;
   background-color: rgb(244 245 248);
   min-height: 90vh;
+  overflow-x: scroll;
 }
 
 .group-column {
@@ -59,7 +60,7 @@
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   height: 90px;
   font-size: 14px;
 }
@@ -85,6 +86,26 @@
   text-align: center;
   color: #fff;
   background-color: #964804;
+  position: relative;
+}
+
+.user-status {
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  bottom: -2px;
+  right: -2px;
+  border: #fff 1px solid;
+}
+
+.live {
+  background-color: #f7d82a;
+}
+
+.gone {
+  background-color: #e8e8e8;
 }
 
 .card-body {
@@ -123,12 +144,13 @@
   font-size: 10px;
 }
 
-/* .tag-dot {
-  width: 2px;
-  height: 2px;
+.tag-dot {
+  height: 8px;
+  width: 8px;
+  background-color: #bbb;
   border-radius: 50%;
-  background-color: #000000;
-} */
+  display: inline-block;
+}
 
 .dropdown {
   position: relative;
@@ -144,6 +166,7 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   border-radius: 8px;
   width: 250px;
+  z-index: 100;
 }
 
 .menu-item {
@@ -182,6 +205,10 @@
   display: flex;
   gap: 4px;
   align-items: center;
+}
+
+.group-title p {
+  font-weight: 500;
 }
 
 .group-head {

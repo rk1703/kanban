@@ -7,7 +7,7 @@ import Board from './components/Board';
 
 const App = () => {
   const [tickets, setTickets] = useState([]);
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const [groupBy, setGroupBy] = useState('status');
   const [sortBy, setSortBy] = useState('priority');
   const [open, setOpen] = useState(false);
@@ -25,12 +25,14 @@ const App = () => {
           const user = data.users.find(u => u.id === ticket.userId);
           return {
             ...ticket,
-            assigned_user: user ? user.name : 'Unknown User',
+            userName: user ? user.name : 'Unknown User',
+            priorityName: ['No Priority', 'Low', 'Medium', 'High', 'Urgent'][ticket.priority], 
             user_available: user ? user.available : false
+
           };
         });
         setTickets(updatedTickets);
-        setUsers(data.users);
+        // setUsers(data.users);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
@@ -50,7 +52,7 @@ const App = () => {
   return (
     <div>
       <div className="dropdown">
-      <button onClick={handleOpen} className='display-btn'><img src='/icons/Display.svg' alt='display'/> Display <img src='/icons/down.svg' alt='down'/></button>
+      <button onClick={handleOpen} className='display-btn'><img src='/icons/dropdown/display.svg' alt='display'/> Display <img src='/icons/dropdown/down.svg' alt='down'/></button>
       {open ? (
         <ul className="menu">
           <li className="menu-item">
