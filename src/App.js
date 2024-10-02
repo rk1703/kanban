@@ -6,8 +6,8 @@ import Board from "./components/Board";
 
 const App = () => {
   const [tickets, setTickets] = useState([]);
-  const [groupBy, setGroupBy] = useState("status");
-  const [sortBy, setSortBy] = useState("priority");
+  const [groupBy, setGroupBy] = useState(localStorage.getItem('groupBy') || "status");
+  const [sortBy, setSortBy] = useState(localStorage.getItem('sortBy') || "priority");
   const [open, setOpen] = useState(false);
   const ref = useRef();
 
@@ -24,6 +24,14 @@ const App = () => {
   }, [ref, open, setOpen]);
 
   useEffect(() => {
+    localStorage.setItem('sortBy', sortBy)
+}, [sortBy])
+
+useEffect(() => {
+    localStorage.setItem('groupBy', groupBy)
+}, [groupBy])
+
+  useEffect(() => {
     fetch("https://api.quicksell.co/v1/internal/frontend-assignment")
       .then((response) => response.json())
       .then((data) => {
@@ -33,9 +41,6 @@ const App = () => {
           return {
             ...ticket,
             userName: user ? user.name : "Unknown User",
-            priorityName: ["No Priority", "Low", "Medium", "High", "Urgent"][
-              ticket.priority
-            ],
             user_available: user ? user.available : false,
           };
         });
@@ -43,17 +48,6 @@ const App = () => {
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-
-  const sortTickets = (tickets, sortBy) => {
-    return tickets.sort((a, b) => {
-      if (sortBy === "priority") {
-        return b.priority - a.priority;
-      } else if (sortBy === "title") {
-        return a.title.localeCompare(b.title);
-      }
-      return 0;
-    });
-  };
 
   return (
     <div>
@@ -72,16 +66,16 @@ const App = () => {
           <ul className="menu">
             <li className="menu-item">
               <p>Grouping</p>
-              <GroupBySelector setGroupBy={setGroupBy} />
+              <GroupBySelector setGroupBy={setGroupBy} initial={groupBy}/>
             </li>
             <li className="menu-item">
               <p>Sorting</p>
-              <SortBySelector setSortBy={setSortBy} />
+              <SortBySelector setSortBy={setSortBy} initial={sortBy}/>
             </li>
           </ul>
         ) : null}
       </div>
-      <Board tickets={sortTickets(tickets, sortBy)} groupBy={groupBy} />
+      <Board tickets={tickets} sortBy={sortBy} groupBy={groupBy} />
     </div>
   );
 };

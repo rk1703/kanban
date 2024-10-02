@@ -2,6 +2,7 @@
     display: flex;
     background-color: rgb(244 245 248);
     min-height: 90vh;
+    border-top: rgb(203, 203, 203) 1px solid;
     overflow-x: scroll;
   }
   ::-webkit-scrollbar {
@@ -31,8 +32,21 @@
   
   .group-menu {
     display: flex;
-    gap: 4px;
+    gap: 8px;
     align-items: center;
+  }
+
+  .group-menu img {
+    /* width: 20px;
+    height: 20px; */
+    border-radius: 50%;
+    padding: 3px;
+    background-color: #ebebeb;
+    cursor: pointer;
+  }
+
+  .group-menu img:hover {
+    background-color: #dcdcdc;
   }
   
   .group-title {
@@ -41,7 +55,7 @@
     align-items: center;
   }
   
-  .group-title p {
+  .grp-title-name {
     font-weight: 500;
   }
   
@@ -52,3 +66,10 @@
     margin-left: 4px;
     margin-right: 4px;
   }  
+
+  .grp-cnt {
+    font-weight: 400;
+    color: #666;
+    margin-left: 4px;
+
+  }
