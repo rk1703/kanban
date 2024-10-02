@@ -1,4 +1,5 @@
 import Card from "./Card";
+import "./Board.css";
 
 const groupTickets = (tickets, groupBy) => {
   return tickets.reduce((acc, ticket) => {
@@ -26,6 +27,7 @@ const Board = ({ tickets, groupBy }) => {
               )}
 
               <p>{group}</p>
+              <p>{groupedTickets[group].length}</p>
             </div>
             <div className="group-menu">
               <img src={`/icons/menu-utility/add.svg`} alt="add" />

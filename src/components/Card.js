@@ -1,3 +1,5 @@
+import './Card.css';
+
 const Card = ({ ticket }) => {
     const { title, priority, status,id,tag,user_available} = ticket;
   
@@ -5,7 +7,7 @@ const Card = ({ ticket }) => {
       <div className="card">
         <div className="card-header">
         <p className="card-id" style={{}}>{id}</p>
-        <p className="card-avatar">RK <span className={user_available ? "user-status live": "user-status gone"}></span></p>
+        <p className="card-avatar">RK <span className={user_available ? "live": "gone"}></span></p>
         </div>
         <div className="card-body">
         <img src={`/icons/card-status/${status}.svg`} alt="status"></img>

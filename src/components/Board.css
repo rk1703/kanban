@@ -1,0 +1,54 @@
+.board {
+    display: flex;
+    background-color: rgb(244 245 248);
+    min-height: 90vh;
+    overflow-x: scroll;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    border-radius: 20px;
+  }
+  .group-column {
+    margin: 10px;
+    width: 300px;
+    padding: 10px;
+  }
+  
+  .group-menu {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  
+  .group-title {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  
+  .group-title p {
+    font-weight: 500;
+  }
+  
+  .group-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 4px;
+    margin-right: 4px;
+  }  
